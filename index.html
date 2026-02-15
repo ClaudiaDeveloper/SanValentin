@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para Rocío ❤️</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI', sans-serif;
+}
+
+body{
+  background: linear-gradient(180deg,#121212,#2b0f1c);
+  color:white;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* CONTADOR */
+.contador{
+  text-align:center;
+  font-size:13px;
+  opacity:0.8;
+  margin-bottom:15px;
+}
+
+/* PANTALLA INICIAL */
+#inicio{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background: linear-gradient(180deg,#ff4e75,#121212);
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  z-index:20;
+}
+
+#inicio button{
+  padding:12px 28px;
+  border:none;
+  border-radius:30px;
+  background:white;
+  color:#ff4e75;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* CONTENIDO */
+.container{
+  padding:25px 20px 50px;
+  max-width:420px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+.volver{
+  margin-bottom:15px;
+  background:#333;
+}
+
+.carta{
+  background:#1f1f1f;
+  padding:18px;
+  border-radius:20px;
+  font-size:14px;
+  line-height:1.7;
+  margin-bottom:25px;
+}
+
+.song{
+  background:#181818;
+  padding:15px;
+  border-radius:15px;
+  margin-bottom:15px;
+}
+
+.song-header{
+  display:flex;
+  align-items:center;
+  margin-bottom:8px;
+}
+
+.cover{
+  width:55px;
+  height:55px;
+  border-radius:10px;
+  margin-right:12px;
+  background:linear-gradient(135deg,#ff4e75,#ff9a9e);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:20px;
+}
+
+.song-info h3{
+  font-size:15px;
+}
+
+.song-info p{
+  font-size:12px;
+  opacity:0.6;
+}
+
+.controls{
+  display:flex;
+  gap:10px;
+  margin-top:8px;
+}
+
+button{
+  background:#ff4e75;
+  border:none;
+  border-radius:20px;
+  padding:6px 12px;
+  color:white;
+  cursor:pointer;
+  font-size:12px;
+}
+
+.traduccion{
+  margin-top:12px;
+  font-size:13px;
+  line-height:1.6;
+  display:none;
+  opacity:0.9;
+}
+
+/* MENSAJE ESPECIAL */
+.mensaje-especial{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#ff0055;
+  padding:12px 20px;
+  border-radius:25px;
+  font-size:14px;
+  display:none;
+  z-index:30;
+  animation:fadeIn 1s ease;
+}
+
+@keyframes fadeIn{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+/* CORAZONES */
+.hearts-container{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:1;
+  overflow:hidden;
+}
+
+.heart{
+  position:absolute;
+  font-size:20px;
+  animation:float 6s linear infinite;
+  opacity:0.5;
+}
+
+@keyframes float{
+  0%{transform:translateY(100vh) scale(0.8);opacity:0;}
+  30%{opacity:0.6;}
+  100%{transform:translateY(-10vh) scale(1);opacity:0;}
+}
+
+/* DESTELLOS */
+.sparkle{
+  position:absolute;
+  width:4px;
+  height:4px;
+  background:white;
+  border-radius:50%;
+  opacity:0.8;
+  animation:twinkle 2s infinite;
+}
+
+@keyframes twinkle{
+  0%{opacity:0;}
+  50%{opacity:1;}
+  100%{opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<div class="hearts-container"></div>
+
+<div id="inicio">
+  <h1 style="margin-bottom:15px;">Para Rocío 💖</h1>
+  <p style="margin-bottom:20px;">Gracias por ser mi valentín…</p>
+  <button onclick="entrar()">Entrar</button>
+</div>
+
+<div class="container">
+
+<button class="volver" onclick="volverInicio()">← Volver al inicio</button>
+
+<div class="contador" id="contador"></div>
+
+<div class="carta">
+Rocío…  
+Desde el 12-12-2018 mi mundo cambió para siempre.  
+No sabía que podía amar así, tan profundo, tan real.  
+Cada canción aquí es una parte de mi corazón hablándote.  
+Y si no eres tú… no es nadie más. ❤️
+</div>
+
+<!-- Shameless -->
+<div class="song">
+<div class="song-header">
+<div class="cover">❤</div>
+<div class="song-info">
+<h3>Shameless</h3>
+<p>Camila Cabello</p>
+</div>
+</div>
+<div class="controls">
+<button onclick="toggleSong(this,'cancion1.mp3')">▶</button>
+<button onclick="toggleTraduccion(this)">Ver traducción</button>
+</div>
+<div class="traduccion">
+Estoy sin vergüenza cuando se trata de amarte.  
+No quiero esconder lo que siento.  
+Me entrego completamente, sin orgullo, sin miedo.  
+Porque cuando se trata de ti, mi corazón no sabe fingir.
+</div>
+</div>
+
+<!-- Locked Out Of Heaven -->
+<div class="song">
+<div class="song-header">
+<div class="cover">💖</div>
+<div class="song-info">
+<h3>Locked Out Of Heaven</h3>
+<p>Bruno Mars</p>
+</div>
+</div>
+<div class="controls">
+<button onclick="toggleSong(this,'cancion2.mp3')">▶</button>
+<button onclick="toggleTraduccion(this)">Ver traducción</button>
+</div>
+<div class="traduccion">
+Tu amor me hace sentir en el cielo.  
+Cada vez que me abrazas el mundo desaparece.  
+No quiero volver a estar sin ti,  
+porque contigo encontré algo que jamás había sentido.
+</div>
+</div>
+
+<!-- Anyone -->
+<div class="song">
+<div class="song-header">
+<div class="cover">💘</div>
+<div class="song-info">
+<h3>Anyone</h3>
+<p>Justin Bieber</p>
+</div>
+</div>
+<div class="controls">
+<button onclick="toggleSong(this,'cancion3.mp3')">▶</button>
+<button onclick="toggleTraduccion(this)">Ver traducción</button>
+</div>
+<div class="traduccion">
+Si no eres tú, no es nadie más.  
+No necesito buscar en ningún otro lugar.  
+Mi corazón ya eligió.  
+Te elegiría en esta vida y en todas las que existan.
+</div>
+</div>
+
+</div>
+
+<div class="mensaje-especial" id="mensajeEspecial">
+Si no eres tú… no es nadie más 💘
+</div>
+
+<audio id="player"></audio>
+
+<script>
+
+/* CONTADOR */
+function actualizarContador(){
+  const inicio = new Date("2018-12-12");
+  const hoy = new Date();
+  const diff = hoy - inicio;
+  const dias = Math.floor(diff / (1000*60*60*24));
+  document.getElementById("contador").innerText =
+  "Han pasado " + dias + " días desde que comenzó nuestra historia ❤️";
+}
+actualizarContador();
+
+/* NAVEGACIÓN */
+function entrar(){
+  document.getElementById("inicio").style.display="none";
+}
+function volverInicio(){
+  document.getElementById("inicio").style.display="flex";
+  player.pause();
+}
+
+/* CORAZONES */
+const heartsContainer = document.querySelector(".hearts-container");
+let heartInterval = 400;
+let heartColor = "#ff4e75";
+let interval = setInterval(createHeart,heartInterval);
+
+function createHeart(){
+  const heart = document.createElement("div");
+  heart.classList.add("heart");
+  heart.innerHTML="❤";
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = (15 + Math.random()*30) + "px";
+  heart.style.animationDuration = (4 + Math.random()*3) + "s";
+  heart.style.color = heartColor;
+  heartsContainer.appendChild(heart);
+  setTimeout(()=>{heart.remove();},7000);
+}
+
+function boostHearts(speed,color){
+  clearInterval(interval);
+  heartInterval = speed;
+  heartColor = color;
+  interval = setInterval(createHeart,heartInterval);
+}
+
+/* DESTELLOS */
+function createSparkle(){
+  const sparkle = document.createElement("div");
+  sparkle.classList.add("sparkle");
+  sparkle.style.left = Math.random()*100 + "vw";
+  sparkle.style.top = Math.random()*100 + "vh";
+  document.body.appendChild(sparkle);
+  setTimeout(()=>{sparkle.remove();},2000);
+}
+setInterval(createSparkle,800);
+
+/* REPRODUCTOR */
+const player=document.getElementById("player");
+let currentBtn=null;
+
+function toggleSong(btn,src){
+  if(player.src.includes(src) && !player.paused){
+    player.pause();
+    btn.innerHTML="▶";
+    boostHearts(400,"#ff4e75");
+    document.getElementById("mensajeEspecial").style.display="none";
+  }else{
+    if(currentBtn) currentBtn.innerHTML="▶";
+    player.src=src;
+    player.play();
+    btn.innerHTML="⏸";
+    currentBtn=btn;
+
+    if(src==="cancion1.mp3"){ boostHearts(200,"#ff2e63"); }
+    if(src==="cancion2.mp3"){ boostHearts(250,"#ff9a9e"); }
+    if(src==="cancion3.mp3"){
+      boostHearts(150,"#ff0055");
+      document.getElementById("mensajeEspecial").style.display="block";
+    }
+  }
+}
+
+function toggleTraduccion(btn){
+  const traduccion = btn.parentElement.nextElementSibling;
+  traduccion.style.display =
+  traduccion.style.display==="block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
